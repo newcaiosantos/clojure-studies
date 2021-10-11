@@ -11,3 +11,16 @@
 (def res (reduce + (filter #(= 0(rem % 2)) (fi 4000000))))
 
 (println res)
+
+
+
+(defn fib
+  [max]
+  (loop [seq [0 1 1]]
+    (let [[a b] (reverse seq)
+          next (+ a b)]
+      (if (> next max)
+        seq
+        (recur (into seq [next]))))))
+
+(println (fib 10))
